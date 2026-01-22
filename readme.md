@@ -1,22 +1,31 @@
-# HJ Consulting - Elite Cloud Architecture
+# HJ-Data-Consulting
 
-This repository contains the source code for Herman Justino's professional practice, focused on elite cloud architecture and reliability engineering. 
+** Cloud Architecture and Reliability Engineering.**
 
-Everything here follows the philosophical foundations laid out in our [internal context](https://github.com/HJ-Data-Consulting/core-ops): building systems with judgment, restraint, and architectural taste.
+Cloud architecture and data solutions for organizations that require absolute precision, reliability, and technical restraint.
 
-## Practice Areas
+## Overview
 
-- **Elite Cloud Architecture** - Decisions that scale socially and technically. Designing for failure, cost, and human operators.
-- **Cloud Reliability Engineering** - Implementing systems that fail honestly. SRE principles applied to growth-stage startups.
-- **Data Infrastructure at Scale** - Sound abstractions for complex data lifecycles. Principled tradeoffs for GCP-native environments.
-- **The Decision Feed** - A public, compounding proof of architectural taste. Distilling raw engineering into defensible artifacts.
+HJ Consulting specializes in building high-scale, critical systems. As a founder member of the **Google for Startups Cloud Program**, we apply Google’s internal engineering standards to help growth-stage companies build defensible, scalable architecture.
+
+## Core Competencies
+
+*   **Technical Strategy & Infrastructure**: Driving high-impact decisions for technical and organizational scale. We build for reliability, efficiency, and longevity.
+*   **Reliability Engineering (SRE)**: Implementing resilient systems that fail gracefully. We apply SRE principles tailored for business growth and stability.
+*   **Cloud Architecture**: Designing scalable abstractions for mission-critical data lifecycles. We build environments focused on performance and security.
+*   **Engineering Frameworks**: Establishing proven methodologies and consistent standards for engineering excellence.
+
+## Featured Work
+
+We demonstrate our engineering standards through documented use cases:
+*   **Enterprise Cloud Workstation Migration**: Centralizing local workstations into high-performance cloud environments to unlock global scale and unified security.
 
 ## Technical Foundation
 
-- **Platform:** Google Cloud Program (Founder partner)
-- **Stack:** Next.js, TypeScript, Tailwind (Modernizing towards)
-- **Legacy:** This portfolio is built with Vanilla HTML/CSS/JS to demonstrate simplicity and control.
+*   **Partner**: Google for Startups Cloud Program.
+*   **Standards**: SRE principles, sound abstractions, and defensible architectural decisions.
+*   **Stack**: This site is built with Vanilla HTML/CSS/JS to emphasize simplicity, performance, and control.
 
-## Deployment
+---
 
-The site is hosted on GitHub Pages and served at [hjdconsulting.ca](https://hjdconsulting.ca).
+© HJ Consulting | [hjdconsulting.ca](https://hjdconsulting.ca)

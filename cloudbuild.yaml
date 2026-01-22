@@ -1,0 +1,17 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gsutil'
+    # Using -c (checksum) as per your preference
+    args: ['-m', 'rsync', '-r', '-c', '.', 'gs://www.hjdconsulting.ca']
+    
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - compute
+      - url-maps
+      - invalidate-cdn-cache
+      - company-site-lb
+      - --path=/*
+      - --project=hjdc-company-prod # Assuming you are using the same project
+
+options:
+  logging: CLOUD_LOGGING_ONLY
