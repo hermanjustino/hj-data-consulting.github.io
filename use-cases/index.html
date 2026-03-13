@@ -100,6 +100,31 @@
                     </div>
                 </div>
 
+                <!-- Statera Use Case -->
+                <div class="use-case-card">
+                    <div class="use-case-content">
+                        <span class="case-tag">Data & AI Infrastructure</span>
+                        <h2>Statera — AI-Assisted Financial Document Review Platform</h2>
+                        <p>Designing and building the backend infrastructure for a production AI platform that helps financial professionals annotate, verify, and review complex documents with multi-model AI orchestration.</p>
+
+                        <div class="case-details">
+                            <h3>The Challenge</h3>
+                            <p>Financial audit workflows involve high volumes of structured documents — SEC filings, financial statements, backup evidence — that require precise annotation, cross-referencing, and verification. Existing tools lacked the infrastructure to support real-time AI assistance at the document level while maintaining the reliability and auditability that high-stakes review demands.</p>
+
+                            <h3>The Solution</h3>
+                            <p>Architected and built the core data and AI infrastructure for Statera, a multi-tenant platform purpose-built for financial document review. The system combines a hybrid Django + FastAPI ASGI backend with five specialized Celery worker queues for isolated, fault-tolerant background processing. A tri-search stack — ChromaDB for vector similarity, Tantivy for full-text SEC filing search, and Azure Cognitive Search for structured issuer lookups — powers document retrieval across modalities. All secrets are managed through Azure Key Vault, and AI task orchestration routes through a configurable executor layer with streaming response support.</p>
+
+                            <h3>Impact</h3>
+                            <ul>
+                                <li><strong>Production AI at Document Scale:</strong> Multi-model AI orchestration processes financial documents with configurable concurrency and streaming NDJSON responses, keeping reviewers unblocked.</li>
+                                <li><strong>Fault-Tolerant Processing:</strong> Dedicated Celery workers prevent memory-intensive PDF operations from degrading orchestration and API responsiveness.</li>
+                                <li><strong>Audit-Ready Infrastructure:</strong> Azure Key Vault integration, RBAC, and soft-deletion across all models ensure the system meets the traceability requirements of financial workflows.</li>
+                                <li><strong>Tri-Modal Search:</strong> Vector, full-text, and structured search operating in parallel gives reviewers precise retrieval across diverse document types and issuer data.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Add more use cases here later -->
             </div>
         </div>
