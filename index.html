@@ -66,7 +66,7 @@
   <div class="center-content">
     <div class="hero-container" id="home">
       <div class="hero">
-        <h1>HJ Consulting</h1>
+        <h1>HJ Data Consulting</h1>
         <p class="typewriter">Data Solutions</p>
         <hr>
         <div class="social-links">
@@ -90,23 +90,43 @@
       <div class="trusted-by-content">
         <p class="trusted-by-text">Trusted by teams at</p>
         <div class="company-logos">
-          <a href="https://torontoartsfoundation.org/programs/artworksto-youth/" class="company-logo-link"
-            target="_blank" data-tooltip="ArtWorksTO">
-            <img src="./assets/logos/AWTO.svg" alt="AWTO" class="company-logo"
-              onerror="console.log('AWTO logo failed to load'); this.style.display='none';">
-          </a>
-          <a href="https://environmentaldefence.ca" class="company-logo-link" target="_blank" data-tooltip="Environmental Defence Canada">
-            <img src="./assets/logos/edc_logo.svg.png" alt="EDC" class="company-logo">
-          </a>
-          <a href="https://www.creativefuturescollective.com" class="company-logo-link" target="_blank" data-tooltip="Creative Futures Collective">
-            <img src="./assets/logos/creativefutures.png" alt="Creative Futures" class="company-logo">
-          </a>
-          <a href="https://www.sohohouse.com" class="company-logo-link" target="_blank" data-tooltip="Soho House">
-            <img src="./assets/logos/soho.png" alt="Soho" class="company-logo">
-          </a>
-          <a href="https://www.staterasuite.com/" class="company-logo-link" target="_blank" data-tooltip="Statera">
-            <img src="./assets/logos/stateraV2.png" alt="Statera" class="company-logo">
-          </a>
+          <div class="company-logos-track" aria-hidden="false">
+            <a href="https://torontoartsfoundation.org/programs/artworksto-youth/" class="company-logo-link"
+              target="_blank" data-tooltip="ArtWorksTO">
+              <img src="./assets/logos/AWTO.svg" alt="AWTO" class="company-logo"
+                onerror="console.log('AWTO logo failed to load'); this.style.display='none';">
+            </a>
+            <a href="https://environmentaldefence.ca" class="company-logo-link" target="_blank" data-tooltip="Environmental Defence Canada">
+              <img src="./assets/logos/edc_logo.svg.png" alt="EDC" class="company-logo">
+            </a>
+            <a href="https://www.creativefuturescollective.com" class="company-logo-link" target="_blank" data-tooltip="Creative Futures Collective">
+              <img src="./assets/logos/creativefutures.png" alt="Creative Futures" class="company-logo">
+            </a>
+            <a href="https://www.sohohouse.com" class="company-logo-link" target="_blank" data-tooltip="Soho House">
+              <img src="./assets/logos/soho.png" alt="Soho" class="company-logo">
+            </a>
+            <a href="https://www.staterasuite.com/" class="company-logo-link" target="_blank" data-tooltip="Statera">
+              <img src="./assets/logos/stateraV2.png" alt="Statera" class="company-logo">
+            </a>
+            <!-- Duplicate set for seamless loop -->
+            <a href="https://torontoartsfoundation.org/programs/artworksto-youth/" class="company-logo-link"
+              target="_blank" data-tooltip="ArtWorksTO" aria-hidden="true" tabindex="-1">
+              <img src="./assets/logos/AWTO.svg" alt="" class="company-logo"
+                onerror="this.style.display='none';">
+            </a>
+            <a href="https://environmentaldefence.ca" class="company-logo-link" target="_blank" data-tooltip="Environmental Defence Canada" aria-hidden="true" tabindex="-1">
+              <img src="./assets/logos/edc_logo.svg.png" alt="" class="company-logo">
+            </a>
+            <a href="https://www.creativefuturescollective.com" class="company-logo-link" target="_blank" data-tooltip="Creative Futures Collective" aria-hidden="true" tabindex="-1">
+              <img src="./assets/logos/creativefutures.png" alt="" class="company-logo">
+            </a>
+            <a href="https://www.sohohouse.com" class="company-logo-link" target="_blank" data-tooltip="Soho House" aria-hidden="true" tabindex="-1">
+              <img src="./assets/logos/soho.png" alt="" class="company-logo">
+            </a>
+            <a href="https://www.staterasuite.com/" class="company-logo-link" target="_blank" data-tooltip="Statera" aria-hidden="true" tabindex="-1">
+              <img src="./assets/logos/stateraV2.png" alt="" class="company-logo">
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -227,7 +247,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© HJ Consulting <span id="currentYear"></span></p>
+        <p>© HJ Data Consulting <span id="currentYear"></span></p>
       </div>
     </div>
   </footer>
@@ -235,6 +255,85 @@
   <canvas id="neural-network"></canvas>
   <script src="./scripts/neural-network.js"></script>
   <script src="./scripts/nav.js"></script>
+  <script>
+    (function () {
+      const track = document.querySelector('.company-logos');
+      if (!track) return;
+
+      const speed = 1.2;        // px per frame
+      const resumeDelay = 1500; // ms after user interaction before auto-scroll resumes
+
+      let paused = false;
+      let resumeTimer = null;
+
+      function pause() {
+        paused = true;
+        clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(() => { paused = false; }, resumeDelay);
+      }
+
+      // Auto-scroll: loop back to start when end is reached
+      function step() {
+        if (!paused) {
+          track.scrollLeft += speed;
+          if (track.scrollLeft >= track.scrollWidth - track.clientWidth) {
+            track.scrollLeft = 0;
+          }
+        }
+        requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+
+      // Pause on hover
+      track.addEventListener('mouseenter', pause);
+      track.addEventListener('mouseleave', () => {
+        clearTimeout(resumeTimer);
+        paused = false;
+      });
+
+      // Drag to scroll (mouse)
+      let isDragging = false;
+      let startX, startScroll;
+
+      track.addEventListener('dragstart', (e) => e.preventDefault());
+
+      let dragDistance = 0;
+
+      track.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        isDragging = true;
+        dragDistance = 0;
+        paused = true;
+        startX = e.pageX - track.offsetLeft;
+        startScroll = track.scrollLeft;
+        clearTimeout(resumeTimer);
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (isDragging) {
+          isDragging = false;
+          pause();
+        }
+      });
+
+      track.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const x = e.pageX - track.offsetLeft;
+        const delta = x - startX;
+        dragDistance = Math.abs(delta);
+        track.scrollLeft = startScroll - delta;
+      });
+
+      // Suppress click if the mouse moved more than 5px (it was a drag, not a click)
+      track.addEventListener('click', (e) => {
+        if (dragDistance > 5) e.preventDefault();
+      }, true);
+
+      // Touch: pause on touch, resume after lift
+      track.addEventListener('touchstart', () => pause(), { passive: true });
+      track.addEventListener('touchend', () => pause(), { passive: true });
+    })();
+  </script>
 </body>
 
 </html>
